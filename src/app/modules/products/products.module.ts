@@ -1,6 +1,8 @@
 import { Schema, model } from "mongoose";
-import { TStationery } from "./stationeryInterface";
+import { TStationery } from "./productsInterface";
 
+
+// stationery schema
 const stationerySchema = new Schema<TStationery>({
     name: {
         type: String,
@@ -30,8 +32,18 @@ const stationerySchema = new Schema<TStationery>({
     },
     inStock: {
         type: Boolean,
-        required: [true, 'In Stack is required']
+        default: true,
+        // required: [true, 'In Stack is required']
+    },
+    created_at: {
+        type: Date,
+        default: Date.now,
+      },
+    updated_at: {
+        type: Date,
+        default: Date.now,
     }
 })
 
-export const Stationery = model<TStationery>('Stationery', stationerySchema)
+// stationery model 
+export const Products = model<TStationery>('Products', stationerySchema)

@@ -1,13 +1,19 @@
 import { Request, Response } from "express";
 
 
-
-const createStationeryProduct = async (req: Request, res: Response) => {
+// order create controllers
+const createOrder = async (req: Request, res: Response) => {
     try {
-        const {stationery: stationeryData} = req.body
-        
+        const {order: orderData} = req.body
+
     } catch (error) {
         console.log(error);
         
     }
+}
+
+
+// 
+export const OrderControllers = {
+    createOrder
 }

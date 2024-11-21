@@ -6,4 +6,6 @@ export type TStationery = {
     description: string;
     quantity: number;
     inStock: boolean;
+    created_at?: Date;
+    updated_at?: Date;
 }
