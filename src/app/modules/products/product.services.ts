@@ -14,7 +14,14 @@ const getAllProductIntoDB = async(query: object) => {
     return result
 }
 
-export const productsServices = {
+// single product get services
+const getSingleIntoDB = async(id: string) => {
+    const result = await Products.findById(id)
+    return result
+}
+
+export const ProductsServices = {
     createProductIntoDB,
-    getAllProductIntoDB
+    getAllProductIntoDB,
+    getSingleIntoDB
 }

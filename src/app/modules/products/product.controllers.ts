@@ -1,13 +1,13 @@
 import { NextFunction, Request, Response } from "express";
 import productZodSchema from "./product.zod.validation";
-import { productsServices } from "./product.services";
+import { ProductsServices } from "./product.services";
 
 
 // create product api
 const createProduct = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const productData = req.body
-        const result = await productsServices.createProductIntoDB(productData)
+        const result = await ProductsServices.createProductIntoDB(productData)
         res.status(200).json({
             message: 'Product created successfully',
             success: true,
@@ -36,7 +36,7 @@ const getAllProducts = async(req: Request, res: Response, next: NextFunction) =>
             }
         }
 
-        const result = await productsServices.getAllProductIntoDB(query)
+        const result = await ProductsServices.getAllProductIntoDB(query)
         res.status(200).json({
             message: 'Products retrieved successfully"',
             success: true,
@@ -48,7 +48,27 @@ const getAllProducts = async(req: Request, res: Response, next: NextFunction) =>
     }
 }
 
+
+// get single product with id
+const getSingleProduct = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const { productId } = req.params
+
+        const result = await ProductsServices.getSingleIntoDB(productId)
+
+        res.status(200).json({
+            message: 'Product retrieved successfully',
+            success: true,
+            data: result
+        })
+
+    } catch (error) {
+        next(error)
+    }
+}
+
 export const ProductsControllers = {
     createProduct,
-    getAllProducts
+    getAllProducts,
+    getSingleProduct
 }
