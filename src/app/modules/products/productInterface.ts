@@ -1,4 +1,8 @@
-export type TProduct = {
+import { Model } from "mongoose";
+
+
+// Stationery Product Interface
+export interface TProduct  {
     name: string;
     brand: string;
     price: number;

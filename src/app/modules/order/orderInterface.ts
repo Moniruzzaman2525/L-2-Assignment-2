@@ -1,6 +1,7 @@
 import { Types } from "mongoose";
 
-export type TOrder = {
+// Stationery Order Interface
+export interface TOrder {
     email: string;
     product: Types.ObjectId;
     quantity: number;

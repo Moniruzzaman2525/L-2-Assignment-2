@@ -1,13 +1,10 @@
 import { NextFunction, Request, Response } from "express";
-import productZodSchema from "./product.zod.validation";
 import { ProductsServices } from "./product.services";
 
-
-// create product api
+// Create a Stationery Product controller
 const createProduct = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const productData = req.body
-        // const zodParseData = productZodSchema.parse(productData)
         const result = await ProductsServices.createProductIntoDB(productData)
         res.status(200).json({
             message: 'Product created successfully',
@@ -20,8 +17,7 @@ const createProduct = async (req: Request, res: Response, next: NextFunction) =>
     }
 }
 
-
-// get all products
+// Get All Stationery Products controller
 const getAllProducts = async(req: Request, res: Response, next: NextFunction) => {
     try {
         const {searchTerm} = req.query
@@ -38,6 +34,7 @@ const getAllProducts = async(req: Request, res: Response, next: NextFunction) =>
         }
 
         const result = await ProductsServices.getAllProductIntoDB(query)
+        
         res.status(200).json({
             message: 'Products retrieved successfully"',
             success: true,
@@ -50,12 +47,21 @@ const getAllProducts = async(req: Request, res: Response, next: NextFunction) =>
 }
 
 
-// get single product with id
+// Get a Specific Stationery Product controller
 const getSingleProduct = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const { productId } = req.params
 
         const result = await ProductsServices.getSingleIntoDB(productId)
+
+        // product not found
+        if (!result) {
+            res.status(404).json({
+                message: 'Product not found',
+                success: false,
+            })
+            return
+        }
 
         res.status(200).json({
             message: 'Product retrieved successfully',
@@ -68,8 +74,8 @@ const getSingleProduct = async (req: Request, res: Response, next: NextFunction)
     }
 }
 
-
-// update product
+ 
+// Update a Stationery Product controller
 const updateProduct = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const { productId } = req.params
@@ -79,10 +85,11 @@ const updateProduct = async (req: Request, res: Response, next: NextFunction) =>
 
         // product not found
         if (!result) {
-            return res.status(400).json({
+            res.status(404).json({
                 message: 'Product not found',
                 success: false,
             })
+            return
         }
 
         // update response 
@@ -97,9 +104,36 @@ const updateProduct = async (req: Request, res: Response, next: NextFunction) =>
     }
 }
 
+// Delete a Stationery Product controller
+const deleteProduct = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const { productId } = req.params
+        const result = await ProductsServices.deleteProductFromDB(productId)
+        
+        // product not found
+        if (!result) {
+            res.status(404).json({
+                message: 'Product not found',
+                success: false,
+            }) 
+            return
+        }
+
+        res.status(200).json({
+            message: 'Product deleted successfully',
+            success: true,
+            data: {}
+        })
+    } catch (error) {
+        next(error)
+    }
+}
+
+// export Stationery Product Controller
 export const ProductsControllers = {
     createProduct,
     getAllProducts,
     getSingleProduct,
-    updateProduct
+    updateProduct,
+    deleteProduct
 }

@@ -1,19 +1,12 @@
 import { Schema, model } from "mongoose";
 import { TProduct } from "./productInterface";
-import validator from "validator";
 
 
-// stationery schema
+// Stationery Product Schema
 const productsSchema = new Schema<TProduct>({
     name: {
         type: String,
-        required: [true, 'Name is required'],
-        validate: {
-            validator: (value: string) => {
-                return typeof value === 'string' && validator.isAlpha(value.replace(/ /g, ''));
-            },
-            message: 'Name must be a valid string'
-        }
+        required: [true, 'Name is required']
     },
     brand: {
         type: String,
@@ -62,5 +55,5 @@ const productsSchema = new Schema<TProduct>({
     }
 })
 
-// stationery model 
+// Stationery Product Model
 export const Products = model<TProduct>('Products', productsSchema)
