@@ -7,6 +7,7 @@ import { ProductsServices } from "./product.services";
 const createProduct = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const productData = req.body
+        // const zodParseData = productZodSchema.parse(productData)
         const result = await ProductsServices.createProductIntoDB(productData)
         res.status(200).json({
             message: 'Product created successfully',
@@ -67,8 +68,38 @@ const getSingleProduct = async (req: Request, res: Response, next: NextFunction)
     }
 }
 
+
+// update product
+const updateProduct = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const { productId } = req.params
+        const updateProduct = req.body
+
+        const result = await ProductsServices.updateProductIntoDB(updateProduct, productId)
+
+        // product not found
+        if (!result) {
+            return res.status(400).json({
+                message: 'Product not found',
+                success: false,
+            })
+        }
+
+        // update response 
+        res.status(200).json({
+            message: 'Product updated successfully',
+            success: true,
+            data: result
+        })
+
+    } catch (error) {
+        next(error)
+    }
+}
+
 export const ProductsControllers = {
     createProduct,
     getAllProducts,
-    getSingleProduct
+    getSingleProduct,
+    updateProduct
 }

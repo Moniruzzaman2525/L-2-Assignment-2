@@ -1,21 +1,32 @@
 import { Schema, model } from "mongoose";
 import { TProduct } from "./productInterface";
+import validator from "validator";
 
 
 // stationery schema
 const productsSchema = new Schema<TProduct>({
     name: {
         type: String,
-        required: [true, 'Name is required']
+        required: [true, 'Name is required'],
+        validate: {
+            validator: (value: string) => {
+                return typeof value === 'string' && validator.isAlpha(value.replace(/ /g, ''));
+            },
+            message: 'Name must be a valid string'
+        }
     },
     brand: {
         type: String,
-        required: [true, 'Brand is required']
+        required: [true, 'Brand is required'],
     },
     price: {
         type: Number,
         required: [true, 'Price is required'],
-        min: [0, 'Price must be a positive number']
+        min: [0, 'Price must be a positive number'],
+        validate: {
+            validator: (value: number) => value >= 0,
+            message: 'Price must be a non-negative number'
+        }
     },
     category: {
         type: String,
@@ -29,7 +40,12 @@ const productsSchema = new Schema<TProduct>({
     },
     quantity: {
         type: Number,
-        required: [true, 'Quantity is required']
+        required: [true, 'Quantity is required'],
+        min: [0, 'Price must be a positive number'],
+        validate: {
+            validator: (value: number) => value >= 0,
+            message: 'Price must be a non-negative number'
+        }
     },
     inStock: {
         type: Boolean,

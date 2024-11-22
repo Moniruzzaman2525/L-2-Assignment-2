@@ -20,8 +20,23 @@ const getSingleIntoDB = async(id: string) => {
     return result
 }
 
+// update product 
+const updateProductIntoDB = async (updateData: Partial<TProduct>, productId: string) => {
+    const result = await Products.findByIdAndUpdate(
+        productId,
+        updateData,
+        {new: true, runValidators: true}
+    )
+    if (!result) {
+        return null
+    }
+    return result
+}
+
 export const ProductsServices = {
     createProductIntoDB,
     getAllProductIntoDB,
-    getSingleIntoDB
+    getSingleIntoDB,
+    updateProductIntoDB
+
 }
