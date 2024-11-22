@@ -1,9 +1,9 @@
 import { Schema, model } from "mongoose";
-import { TStationery } from "./productsInterface";
+import { TProduct } from "./productInterface";
 
 
 // stationery schema
-const stationerySchema = new Schema<TStationery>({
+const productsSchema = new Schema<TProduct>({
     name: {
         type: String,
         required: [true, 'Name is required']
@@ -14,7 +14,8 @@ const stationerySchema = new Schema<TStationery>({
     },
     price: {
         type: Number,
-        required: [true, 'Price is required']
+        required: [true, 'Price is required'],
+        min: [0, 'Price must be a positive number']
     },
     category: {
         type: String,
@@ -46,4 +47,4 @@ const stationerySchema = new Schema<TStationery>({
 })
 
 // stationery model 
-export const Products = model<TStationery>('Products', stationerySchema)
+export const Products = model<TProduct>('Products', productsSchema)
