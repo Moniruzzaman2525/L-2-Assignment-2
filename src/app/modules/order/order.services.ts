@@ -10,33 +10,16 @@ const orderProductService = async (orderData: TOrder) => {
 
 // Calculate Revenue from Orders Services
 const getTotalRevenueFromDB = async()=> {
+    
     const result = await Orders.aggregate([
+       
         {
-            $lookup: {
-                from: 'products', 
-                localField: 'product',
-                foreignField: '_id', 
-                as: 'productDetails'
-            }
+          $group: {
+            _id: null,
+            totalRevenue: { $sum: '$totalPrice' }, 
+          },
         },
-        {
-            $unwind: {
-                path: '$productDetails',
-                preserveNullAndEmptyArrays: false 
-            }
-        },
-        {
-            $addFields: {
-                revenueValue: { $multiply: ['$quantity', '$productDetails.price'] }
-            }
-        },
-        {
-            $group: {
-                _id: null, 
-                totalRevenue: { $sum: '$revenueValue' } 
-            }
-        }
-    ]);
+      ]);
 
     const totalRevenue = result.length > 0 ? result[0].totalRevenue : 0
     return totalRevenue
