@@ -3,6 +3,7 @@ import cors from 'cors';
 import { productRoute } from './app/modules/products/product.route';
 import errorHandler from './utils/errorHandler';
 import { OrderRoutes } from './app/modules/order/order.route';
+import notFoundRoute from './utils/notFound';
 
 const app: Application = express();
 app.use(cors());
@@ -13,6 +14,7 @@ app.use('/api', productRoute);
 
 // Order Route
 app.use('/api', OrderRoutes);
+app.use('*', notFoundRoute)
 
 // Error handler
 app.use(errorHandler);
