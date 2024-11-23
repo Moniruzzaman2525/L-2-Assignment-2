@@ -41,11 +41,11 @@
 
 ### Products
 - Create a Stationery Product: ```POST``` ```/api/products```
-- Get All Stationery Products: GET /api/products
-- Get a Specific Stationery Product: GET /api/products/:productId
-- Update a Stationery Product: PUT /api/products/:productId
-- Delete a Stationery Product: DELETE /api/products/:productId
+- Get All Stationery Products: ```GET``` ```/api/products```
+- Get a Specific Stationery Product: ```GET``` ```/api/products/:productId```
+- Update a Stationery Product: ```PUT``` ```/api/products/:productId```
+- Delete a Stationery Product: ```DELETE``` ```/api/products/:productId```
 
 ### Orders
-- Order a Stationery Product: POST /api/orders
-- Calculate Revenue from Orders: GET /api/orders/revenue
+- Order a Stationery Product: ```POST``` ```/api/orders```
+- Calculate Revenue from Orders: ```GET``` ```/api/orders/revenue```
