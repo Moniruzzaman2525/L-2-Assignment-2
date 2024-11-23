@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint src/**/*.ts",
+    "start": "node src/server.js",
     "lint:fix": "eslint src/**/*.ts --fix",
     "format": "prettier . --write",
     "build": "tsc",
