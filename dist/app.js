@@ -5,10 +5,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
+const product_route_1 = require("./app/modules/products/product.route");
+const errorHandler_1 = __importDefault(require("./utils/errorHandler"));
+const order_route_1 = require("./app/modules/order/order.route");
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
-app.get("/", (req, res) => {
-    res.send("Hello World");
-});
+// Product route
+app.use('/api', product_route_1.productRoute);
+// Order Route
+app.use('/api', order_route_1.OrderRoutes);
+// Error handler
+app.use(errorHandler_1.default);
 exports.default = app;

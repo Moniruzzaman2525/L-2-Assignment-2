@@ -20,6 +20,7 @@ const errorHandler = (
       error: err || 'Something went wrong',
     });
   }
+  // next()
 };
 
 export default errorHandler;

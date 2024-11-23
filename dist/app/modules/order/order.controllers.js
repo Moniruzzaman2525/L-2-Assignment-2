@@ -10,16 +10,38 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OrderControllers = void 0;
-// order create controllers
-const createOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const order_services_1 = require("./order.services");
+// Order a Stationery Product controller
+const orderProductController = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { order: orderData } = req.body;
+        const orderData = req.body;
+        const result = yield order_services_1.ordersServices.orderProductService(orderData);
+        res.status(200).json({
+            message: 'Order created successfully',
+            success: true,
+            data: result,
+        });
     }
     catch (error) {
-        console.log(error);
+        next(error);
     }
 });
-// 
+// Calculate Revenue from Orders controller
+const revenueGenerateController = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const result = yield order_services_1.ordersServices.getTotalRevenueFromDB();
+        res.status(200).json({
+            message: 'Revenue calculated successfully',
+            status: true,
+            data: { totalRevenue: result },
+        });
+    }
+    catch (error) {
+        next(error);
+    }
+});
+// export order controllers
 exports.OrderControllers = {
-    createOrder
+    orderProductController,
+    revenueGenerateController,
 };

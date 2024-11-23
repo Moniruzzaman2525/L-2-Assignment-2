@@ -23,7 +23,9 @@ function main() {
                 console.log(`Example app listening: ${config_1.default.port}`);
             });
         }
-        catch (error) { }
+        catch (error) {
+            console.log(error);
+        }
     });
 }
 main();
