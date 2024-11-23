@@ -1,6 +1,6 @@
-import mongoose from "mongoose";
-import app from "./app";
-import config from "./app/config";
+import mongoose from 'mongoose';
+import app from './app';
+import config from './app/config';
 
 async function main() {
   try {
@@ -8,6 +8,8 @@ async function main() {
     app.listen(config.port, () => {
       console.log(`Example app listening: ${config.port}`);
     });
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 }
-main()
+main();

@@ -1,7 +1,12 @@
 // Error Handler
 import { Request, Response, NextFunction } from 'express';
 
-const errorHandler = (err: any, req: Request, res: Response, next: NextFunction) => {
+const errorHandler = (
+  err: any,
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
   if (err.statusCode === 404) {
     res.status(404).json({
       message: err._message,
@@ -15,7 +20,6 @@ const errorHandler = (err: any, req: Request, res: Response, next: NextFunction)
       error: err || 'Something went wrong',
     });
   }
- 
 };
 
-export default errorHandler; 
+export default errorHandler;
