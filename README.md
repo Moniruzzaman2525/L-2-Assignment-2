@@ -34,12 +34,41 @@
 
 ### Setup Instructions
 
-1. Clone the Repository
-```javascript
+### 1. Clone the Repository
+
+```bash
 git clone https://github.com/Moniruzzaman2525/L2-stationery-shop.git
+
 cd L2-stationery-shop
+
 npm install
-```javascript
+```
+### 2. .env file
+
+Provide the `PORT` and `DATABASE_URL` inside the `.env` file.
+
+## Start the Server
+
+```bash
+npm run start:dev
+```
+### To start the production mode:
+
+```bash
+npm run start:prod
+```
+
+### To format the code:
+
+```bash
+npm run format
+```
+
+To automatically fix linting:
+
+```bash
+npm run lint:fix
+```
 
 ## API Endpoints
 
@@ -55,3 +84,9 @@ npm install
 
 - Order a Stationery Product: `POST` `/api/orders`
 - Calculate Revenue from Orders: `GET` `/api/orders/revenue`
+
+## Contact
+
+For any questions or support, please reach out to:
+### Md Moniruzzaman
+### Email: [web.moniruzzaman1@gmail.com]
