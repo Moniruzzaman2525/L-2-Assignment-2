@@ -10,10 +10,6 @@
 - Handle insufficient stock.
 - Calculate and retrieve total revenue.
 
-### Validation
-
-- Custom error handling for better API response
-
 ### Error Handling
 
 - Custom error handling middleware
@@ -36,7 +32,7 @@
 - Make sure MongoDB is available on your machine (either locally or through a cloud service). Set up a .env file to configure the database connection.
 - For the best experience, run the application in a modern browser.
 
-### Setup Installation
+## Setup Installation
 
 ### 1. Clone the Repository
 
@@ -56,19 +52,19 @@ Provide the `PORT` and `DATABASE_URL` inside the `.env` file.
 ```bash
 npm run start:dev
 ```
-### To start the production mode:
+To start the production mode:
 
 ```bash
 npm run start:prod
 ```
 
-### format code:
+format code:
 
 ```bash
 npm run format
 ```
 
-## Automatically fix linting:
+Automatically fix linting:
 
 ```bash
 npm run lint:fix
@@ -76,25 +72,16 @@ npm run lint:fix
 
 ## API Endpoints
 
-### Products
-
-```bash
 1. Create a Stationery Product: `POST` `/api/products`
 2. Get All Stationery Products: `GET` `/api/products`
 3. Get a Specific Stationery Product: `GET` `/api/products/:productId`
 4. Update a Stationery Product: `PUT` `/api/products/:productId`
 5. Delete a Stationery Product: `DELETE` `/api/products/:productId`
-```
-
-### Orders
-
-```bash
-1. Order a Stationery Product: `POST` `/api/orders`
-2. Calculate Revenue from Orders: `GET` `/api/orders/revenue`
-```
+6. Order a Stationery Product: `POST` `/api/orders`
+7. Calculate Revenue from Orders: `GET` `/api/orders/revenue`
 
 ## Contact
 
 For any questions or support, please reach out to:
-### Md Moniruzzaman
-### Email: web.moniruzzaman1@gmail.com
+Md Moniruzzaman
+Email: [web.moniruzzaman1@gmail.com]
