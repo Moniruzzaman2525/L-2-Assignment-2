@@ -82,6 +82,4 @@ npm run lint:fix
 
 ## Contact
 
-For any questions or support, please reach out to:
-Md Moniruzzaman
-Email: [web.moniruzzaman1@gmail.com]
+For any questions or support, please reach out to: [web.moniruzzaman1@gmail.com]
