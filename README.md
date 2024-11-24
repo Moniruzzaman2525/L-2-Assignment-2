@@ -32,13 +32,13 @@
 - Express.js
 - Mongoose
 
-### Install Dependencies
+### Setup Instructions
 
-- npm install typescript --save-dev
-- npm install mongoose --save
-- npm install express
-- npm i cors
-- npm i dotenv
+1. Clone the Repository
+```javascript
+git clone https://github.com/Moniruzzaman2525/L2-stationery-shop.git
+cd stationery-management
+
 
 ## API Endpoints
 

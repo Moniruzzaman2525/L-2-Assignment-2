@@ -14,8 +14,14 @@ app.use('/api', productRoute);
 
 // Order Route
 app.use('/api', OrderRoutes);
-app.use('*', notFoundRoute)
 
+// checking route 
+app.get("/", (req, res) => {
+    res.send("Hello World");
+});
+
+// not found route
+app.use('*', notFoundRoute)
 // Error handler
 app.use(errorHandler);
 

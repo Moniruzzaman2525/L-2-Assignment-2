@@ -16,6 +16,11 @@ app.use(express_1.default.json());
 app.use('/api', product_route_1.productRoute);
 // Order Route
 app.use('/api', order_route_1.OrderRoutes);
+// checking route 
+app.get("/", (req, res) => {
+    res.send("Hello World");
+});
+// not found route
 app.use('*', notFound_1.default);
 // Error handler
 app.use(errorHandler_1.default);
