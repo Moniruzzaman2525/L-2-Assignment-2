@@ -43,7 +43,7 @@ const getAllProducts = async (
     const result = await ProductsServices.getAllProductIntoDB(query);
 
     res.status(200).json({
-      message: 'Products retrieved successfully"',
+      message: 'Products retrieved Successfully"',
       success: true,
       data: result,
     });
