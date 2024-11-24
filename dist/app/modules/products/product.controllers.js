@@ -42,7 +42,7 @@ const getAllProducts = (req, res, next) => __awaiter(void 0, void 0, void 0, fun
         }
         const result = yield product_services_1.ProductsServices.getAllProductIntoDB(query);
         res.status(200).json({
-            message: 'Products retrieved successfully"',
+            message: 'Products retrieved Successfully',
             success: true,
             data: result,
         });

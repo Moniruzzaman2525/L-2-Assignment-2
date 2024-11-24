@@ -49,6 +49,7 @@ orderSchema.pre('save', async function (next) {
       const error = new Error('Product not found');
       error.name = 'Validation Error';
       error.message = 'Product not found';
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (error as any).statusCode = 404;
       return next(error);
     }
@@ -56,6 +57,7 @@ orderSchema.pre('save', async function (next) {
       const error = new Error('Insufficient stock for the product');
       error.name = 'Validation Error';
       error.message = 'Insufficient stock for this product';
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (error as any).statusCode = 404;
       return next(error);
     }
@@ -65,6 +67,7 @@ orderSchema.pre('save', async function (next) {
     }
     await product.save();
     next();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     next(error);
   }

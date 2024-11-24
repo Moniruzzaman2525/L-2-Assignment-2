@@ -18,7 +18,7 @@ app.use('/api', product_route_1.productRoute);
 app.use('/api', order_route_1.OrderRoutes);
 // checking route 
 app.get("/", (req, res) => {
-    res.send("Hello World");
+    res.send("Its working good");
 });
 // not found route
 app.use('*', notFound_1.default);
