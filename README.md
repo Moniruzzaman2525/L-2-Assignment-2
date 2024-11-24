@@ -4,13 +4,8 @@
 
 ## Feather
 
-### Product Management
-
 - Add, update, delete and retrieve stationery shop product.
-- Ensures All field validation.
-
-### Order Management
-
+- Facility to View All or Specific product Details.
 - Orders can be placed with real-time inventory updates.
 - Handle insufficient stock.
 - Calculate and retrieve total revenue.
@@ -25,14 +20,23 @@
 
 ## Project Setup
 
-### Technologies
+### Development Tools:
 
-- Typescript
-- Node.js
-- Express.js
-- Mongoose
+- **Mongoose** – A powerful ODM (Object Data Modeling) library for interacting with MongoDB databases.
+- **ts-node-dev** – For running TypeScript code in development mode.
+- **ESLint** – Helps maintain code quality by identifying and fixing syntax and style issues.
+- **Prettier** – Automatically formats code to ensure a consistent and readable style.
 
-### Setup Instructions
+### Database:
+
+- **MongoDB** – Serves as the database for managing Stationery Shop and order records.
+
+### Additional Configuration
+
+- Make sure MongoDB is available on your machine (either locally or through a cloud service). Set up a .env file to configure the database connection.
+- For the best experience, run the application in a modern browser.
+
+### Setup Installation
 
 ### 1. Clone the Repository
 
@@ -47,7 +51,7 @@ npm install
 
 Provide the `PORT` and `DATABASE_URL` inside the `.env` file.
 
-## Start the Server
+### 3. Start the Server
 
 ```bash
 npm run start:dev
@@ -58,13 +62,13 @@ npm run start:dev
 npm run start:prod
 ```
 
-### To format the code:
+### format code:
 
 ```bash
 npm run format
 ```
 
-To automatically fix linting:
+## Automatically fix linting:
 
 ```bash
 npm run lint:fix
@@ -75,22 +79,22 @@ npm run lint:fix
 ### Products
 
 ```bash
-- Create a Stationery Product: `POST` `/api/products`
-- Get All Stationery Products: `GET` `/api/products`
-- Get a Specific Stationery Product: `GET` `/api/products/:productId`
-- Update a Stationery Product: `PUT` `/api/products/:productId`
-- Delete a Stationery Product: `DELETE` `/api/products/:productId`
+1. Create a Stationery Product: `POST` `/api/products`
+2. Get All Stationery Products: `GET` `/api/products`
+3. Get a Specific Stationery Product: `GET` `/api/products/:productId`
+4. Update a Stationery Product: `PUT` `/api/products/:productId`
+5. Delete a Stationery Product: `DELETE` `/api/products/:productId`
 ```
 
 ### Orders
 
 ```bash
-- Order a Stationery Product: `POST` `/api/orders`
-- Calculate Revenue from Orders: `GET` `/api/orders/revenue`
+1. Order a Stationery Product: `POST` `/api/orders`
+2. Calculate Revenue from Orders: `GET` `/api/orders/revenue`
 ```
 
 ## Contact
 
 For any questions or support, please reach out to:
-Md Moniruzzaman
-Email: [web.moniruzzaman1@gmail.com]
+### Md Moniruzzaman
+### Email: web.moniruzzaman1@gmail.com
