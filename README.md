@@ -55,7 +55,7 @@ npm run start:dev
 To start the production mode:
 
 ```bash
-npm run start:prod
+npm run start
 ```
 
 format code:
