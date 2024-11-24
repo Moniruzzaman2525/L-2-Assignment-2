@@ -17,7 +17,7 @@ app.use('/api', OrderRoutes);
 
 // checking route 
 app.get("/", (req, res) => {
-    res.send("Hello World, Its working good");
+    res.send("Its working good");
 });
 
 // not found route
