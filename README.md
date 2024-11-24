@@ -39,7 +39,7 @@
 git clone https://github.com/Moniruzzaman2525/L2-stationery-shop.git
 cd L2-stationery-shop
 npm install
-javascript```
+```javascript
 
 ## API Endpoints
 
