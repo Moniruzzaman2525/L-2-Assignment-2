@@ -74,19 +74,23 @@ npm run lint:fix
 
 ### Products
 
+```bash
 - Create a Stationery Product: `POST` `/api/products`
 - Get All Stationery Products: `GET` `/api/products`
 - Get a Specific Stationery Product: `GET` `/api/products/:productId`
 - Update a Stationery Product: `PUT` `/api/products/:productId`
 - Delete a Stationery Product: `DELETE` `/api/products/:productId`
+```
 
 ### Orders
 
+```bash
 - Order a Stationery Product: `POST` `/api/orders`
 - Calculate Revenue from Orders: `GET` `/api/orders/revenue`
+```
 
 ## Contact
 
 For any questions or support, please reach out to:
-### Md Moniruzzaman
-### Email: [web.moniruzzaman1@gmail.com]
+Md Moniruzzaman
+Email: [web.moniruzzaman1@gmail.com]
